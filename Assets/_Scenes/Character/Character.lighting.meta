@@ -1,15 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Raven/Assets/_Scenes/SampleScene/LightingData.asset.meta
 guid: eed7a01090ff473418614cf01a345dcd
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 112000000
-=======
-guid: 1e5e392c223f02043bcfe2d3daf5cefc
-NativeFormatImporter:
-  externalObjects: {}
   mainObjectFileID: 0
->>>>>>> main:Raven/Assets/_Scenes/Characters/Characters.lighting.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

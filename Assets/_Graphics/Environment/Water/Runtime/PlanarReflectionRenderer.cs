@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.Rendering;
 #if URP
 using UnityEngine.Rendering.Universal;
@@ -129,11 +130,12 @@ namespace StylizedWater2
 
         public void EnableReflections()
         {
-            if (!AllowReflections || XRGraphics.enabled) return;
+            if (!AllowReflections || (XRSettings.enabled && XRSettings.isDeviceActive)) return;
 
             RenderPipelineManager.beginCameraRendering += OnWillRenderCamera;
             ToggleMaterialReflectionSampling(true);
         }
+
 
         public void DisableReflections()
         {
