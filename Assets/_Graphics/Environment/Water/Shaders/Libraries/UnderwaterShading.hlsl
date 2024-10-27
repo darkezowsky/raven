@@ -1,4 +1,8 @@
-﻿// Deklaracje kolorów wody
+﻿// Deklaracje tekstury i samplera dla Caustics
+Texture2D _CausticsTex;
+SamplerState sampler_CausticsTex;
+
+// Deklaracje kolorów wody
 float4 _WaterShallowColor;
 float4 _WaterDeepColor;
 
@@ -16,8 +20,6 @@ TEXTURE2D_X(_UnderwaterMask);
 SAMPLER(sampler_UnderwaterMask);
 
 // Upewnij się, że tekstura jest poprawnie zadeklarowana
-TEXTURE2D_X(_CausticsTex); // Deklaracja tekstury
-SAMPLER(sampler_CausticsTex); // Deklaracja samplera
 #endif
 
 float ComputeVerticalDistance(float3 wPos, float multiplier)
@@ -114,7 +116,7 @@ float3 SampleUnderwaterReflections(float3 reflectionVector, float smoothness, fl
 // Clip the water using a fake near-clipping plane.
 void ClipSurface(float4 screenPos, float clipZ, float vFace)
 {
-#if defined(_UNDERWATER_ENABLED) // Build error otherwise due to SAMPLE_TEX
+#if defined(_UNDERWATER_ENABLED)
     float clipDepth = saturate((LINEAR_EYE_DEPTH(clipZ)) / CLIP_DISTANCE);
     float underwaterMask = tex2D(sampler_UnderwaterMask, (screenPos.xy / screenPos.w)).r;
     float mask = floor(clipDepth);
