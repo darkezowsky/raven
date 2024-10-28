@@ -32,14 +32,17 @@ public class RFX4_CameraShake : MonoBehaviour
     void OnEnable()
     {
         isPlaying = true;
-        var shakes = FindObjectsOfType(typeof(RFX4_CameraShake)) as RFX4_CameraShake[];
-        if(shakes!=null)
-        foreach (var shake in shakes)
+        var shakes = GameObject.FindObjectsByType<RFX4_CameraShake>(FindObjectsSortMode.None); // Zamiana na now¹ metodê
+        if (shakes != null)
         {
-            shake.canUpdate = false;
+            foreach (var shake in shakes)
+            {
+                shake.canUpdate = false;
+            }
         }
         canUpdate = true;
     }
+
 
     IEnumerator Shake()
     {

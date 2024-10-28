@@ -13,16 +13,15 @@ public class ME_CustomLight : MonoBehaviour
 
     private void Awake()
     {
-
         Shader.SetGlobalTexture("ME_PointLightAttenuation", PointLightAttenuation);
         Shader.SetGlobalVectorArray("ME_LightPositions", ListToArrayWithMaxCount(null, MaxLightsCount));
         Shader.SetGlobalVectorArray("ME_LightColors", ListToArrayWithMaxCount(null, MaxLightsCount));
 
-
-        sceneLights = GameObject.FindObjectsOfType<Light>().ToList();
+        sceneLights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None).ToList(); // Zamiana przestarza³ej metody
         PointLightAttenuation = GeneratePointAttenuationTexture();
         Shader.SetGlobalTexture("ME_PointLightAttenuation", PointLightAttenuation);
     }
+
 
     void Update()
     {

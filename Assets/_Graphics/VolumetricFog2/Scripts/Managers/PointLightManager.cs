@@ -105,15 +105,18 @@ namespace VolumetricFogAndMist2 {
         /// <summary>
         /// Look for nearest point lights
         /// </summary>
-        public void TrackPointLights(bool forceImmediateUpdate = false) {
-
+        public void TrackPointLights(bool forceImmediateUpdate = false)
+        {
             // Look for new lights?
-            if (forceImmediateUpdate || pointLights == null || !Application.isPlaying || (newLightsCheckInterval > 0 && Time.time - checkNewLightsLastTime > newLightsCheckInterval)) {
+            if (forceImmediateUpdate || pointLights == null || !Application.isPlaying || (newLightsCheckInterval > 0 && Time.time - checkNewLightsLastTime > newLightsCheckInterval))
+            {
                 checkNewLightsLastTime = Time.time;
-                pointLights = FindObjectsOfType<Light>();
+                // Use FindObjectsByType instead of FindObjectsOfType
+                pointLights = Object.FindObjectsByType<Light>(FindObjectsSortMode.None);
                 System.Array.Sort(pointLights, pointLightsDistanceComparer);
             }
         }
+
 
 
         int pointLightsDistanceComparer(Light l1, Light l2) {

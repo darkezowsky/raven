@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Linq; // Needed for LINQ operations if you're using them elsewhere
 using UnityEngine.Rendering.Universal;
 
 namespace VolumetricFogAndMist2 {
@@ -43,11 +44,12 @@ namespace VolumetricFogAndMist2 {
         }
 
         public static VolumetricFogManager GetManagerIfExists() {
-            if (_instance == null) {
-                _instance = FindObjectOfType<VolumetricFogManager>();
-            }
-            return _instance;
-        }
+    if (_instance == null) {
+        _instance = FindFirstObjectByType<VolumetricFogManager>();
+    }
+    return _instance;
+}
+
 
         public static PointLightManager pointLightManager {
             get {
@@ -82,18 +84,24 @@ namespace VolumetricFogAndMist2 {
             }
         }
 
-        void SetupLights() {
-            Light[] lights = FindObjectsOfType<Light>();
-            for (int k = 0; k < lights.Length; k++) {
-                Light l = lights[k];
-                if (l.type == LightType.Directional) {
-                    if (sun == null) {
+        void SetupLights()
+        {
+            UnityEngine.Light[] lights = UnityEngine.Object.FindObjectsByType<UnityEngine.Light>(UnityEngine.FindObjectsSortMode.None);
+            for (int k = 0; k < lights.Length; k++)
+            {
+                UnityEngine.Light l = lights[k];
+                if (l.type == LightType.Directional)
+                {
+                    if (sun == null)
+                    {
                         sun = l;
                     }
-                    return;
+                    return; // Exit after finding the first directional light
                 }
             }
         }
+
+
 
         void SetupDepthPrePass() {
             Shader.SetGlobalInt(SKW_FLIP_DEPTH_TEXTURE, flipDepthTexture ? 1 : 0);

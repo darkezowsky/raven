@@ -12,31 +12,35 @@ public class ME_Reflection : MonoBehaviour
     private List<Light> dirLight;
     private List<float> lightIntencity;
 
-	// Use this for initialization
-	void Awake ()
-	{
-	    var lights = GameObject.FindObjectsOfType<Light>();
-	    dirLight = new List<Light>();
+    // Use this for initialization
+    void Awake()
+    {
+        var lights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None); // Zamiana na now¹ metodê
+        dirLight = new List<Light>();
         lightIntencity = new List<float>();
-	    foreach (var l in lights)
-	        if (l.type == LightType.Directional)
-	        {
-	            dirLight.Add(l);
+
+        foreach (var l in lights)
+        {
+            if (l.type == LightType.Directional)
+            {
+                dirLight.Add(l);
                 lightIntencity.Add(l.intensity);
-	        }
-	    
+            }
+        }
 
         reflectionProbe = GetComponent<ReflectionProbe>();
-	    tex = new RenderTexture(reflectionProbe.resolution, reflectionProbe.resolution, 0);
-	    tex.dimension = TextureDimension.Cube;
-	    tex.useMipMap = true;
-	    Shader.SetGlobalTexture("ME_Reflection", tex);
+        tex = new RenderTexture(reflectionProbe.resolution, reflectionProbe.resolution, 0)
+        {
+            dimension = TextureDimension.Cube,
+            useMipMap = true
+        };
+        Shader.SetGlobalTexture("ME_Reflection", tex);
         reflectionProbe.RenderProbe(tex);
-	  
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+
+    // Update is called once per frame
+    void Update ()
 	{
 	    bool requireUpdate = false;
 	    for (var i = 0; i < dirLight.Count; i++)

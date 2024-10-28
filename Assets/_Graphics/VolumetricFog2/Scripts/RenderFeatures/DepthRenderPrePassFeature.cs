@@ -62,7 +62,7 @@ namespace VolumetricFogAndMist2
             {
                 cutOutRenderers.Clear();
                 if (alphaCutoutLayerMask == 0) return;
-                Renderer[] rr = FindObjectsOfType<Renderer>();
+                Renderer[] rr = FindObjectsByType<Renderer>(FindObjectsSortMode.None); // Zast¹pienie przestarza³ej metody
                 for (int r = 0; r < rr.Length; r++)
                 {
                     if (((1 << rr[r].gameObject.layer) & alphaCutoutLayerMask) != 0)
@@ -72,6 +72,8 @@ namespace VolumetricFogAndMist2
                 }
             }
 
+
+            [System.Obsolete("This Configure method overrides an obsolete member.")]
             public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
             {
                 if (transparentLayerMask != m_FilteringSettings.layerMask || alphaCutoutLayerMask != currentCutoutLayerMask)
@@ -91,6 +93,7 @@ namespace VolumetricFogAndMist2
                 ConfigureClear(ClearFlag.All, Color.black);
             }
 
+            [System.Obsolete("This Execute method overrides an obsolete member.")]
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
                 if (transparentLayerMask == 0 && alphaCutoutLayerMask == 0) return;
@@ -162,7 +165,6 @@ namespace VolumetricFogAndMist2
                 CommandBufferPool.Release(cmd);
             }
 
-            /// Cleanup any allocated resources that were created during the execution of this render pass.
             public override void FrameCleanup(CommandBuffer cmd)
             {
                 if (cmd == null) return;
@@ -187,8 +189,6 @@ namespace VolumetricFogAndMist2
             installed = false;
         }
 
-        // Here you can inject one or multiple render passes in the renderer.
-        // This method is called when setting up the renderer once per-camera.
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             installed = true;
