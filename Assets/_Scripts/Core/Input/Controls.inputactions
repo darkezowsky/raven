@@ -11,7 +11,8 @@
                     "id": "847856a7-0b7d-43ca-b434-dc8471529d93",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "CameraLook",
@@ -19,7 +20,8 @@
                     "id": "742bdcbc-b132-4abb-8aea-846b22591556",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Dash",
@@ -27,7 +29,8 @@
                     "id": "732aef4f-cfe6-4f36-bec0-79214532aa56",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Aim",
@@ -35,7 +38,8 @@
                     "id": "05770401-63c2-4731-8303-9f5a52d7fd6d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ActiveState",
@@ -43,7 +47,8 @@
                     "id": "33c6f681-377a-4319-96af-0586ea2332ae",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "DashHold",
@@ -51,7 +56,8 @@
                     "id": "4a421831-ad06-4002-bd21-c7c7ed4befa6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Shoot",
@@ -59,7 +65,8 @@
                     "id": "75089a3c-28fe-41fe-a7ec-6a20692bd180",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Take",
@@ -67,7 +74,8 @@
                     "id": "e87cf5bd-12df-4612-a39d-c816b0e77ad4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ESC",
@@ -75,7 +83,8 @@
                     "id": "05acfd0e-e9a8-40b5-8737-f5da8a392916",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
