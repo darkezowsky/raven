@@ -252,24 +252,19 @@ namespace StylizedWater2
             GL.invertCulling = true;
 
 #if UNITY_2023_1_OR_NEWER
-            /*
-            requestData = new UniversalRenderPipeline.SingleCameraRequest();
-            requestData.destination = reflectionCamera.targetTexture;
-            requestData.slice = -1;
+requestData = new UniversalRenderPipeline.SingleCameraRequest
+{
+    destination = m_reflectionCamera.targetTexture,
+    slice = -1
+};
 
-            //Throws the 'Recursive rendering is not supported in SRP (are you calling Camera.Render from within a render pipeline?).' error.
-            if (RenderPipeline.SupportsRenderRequest(m_reflectionCamera, requestData))
-            {
-                RenderPipeline.SubmitRenderRequest(m_reflectionCamera, requestData);
-            }
-            */
-            
-            //Instead, Unity will whine about using an obsolete API.
-            UniversalRenderPipeline.RenderSingleCamera(context, m_reflectionCamera);
-            
-            //So now what?
+// Sprawdź, czy render request jest obsługiwany
+if (RenderPipeline.SupportsRenderRequest(m_reflectionCamera, requestData))
+{
+    RenderPipeline.SubmitRenderRequest(m_reflectionCamera, requestData);
+}
 #else
-            UniversalRenderPipeline.RenderSingleCamera(context, m_reflectionCamera);
+UniversalRenderPipeline.RenderSingleCamera(context, m_reflectionCamera);
 #endif
             
             if (fogEnabled) RenderSettings.fog = true;
