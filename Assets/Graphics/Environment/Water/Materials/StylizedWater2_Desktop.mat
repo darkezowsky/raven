@@ -17,7 +17,7 @@ Material:
   - _DISTANCE_NORMALS
   - _NORMALMAP
   - _REFRACTION
-  - _SHARP_INERSECTION
+  - _SMOOTH_INTERSECTION
   - _TRANSLUCENCY
   - _WAVES
   m_InvalidKeywords:
@@ -160,14 +160,14 @@ Material:
     - _GlossyReflections: 0
     - _HorizonDistance: 32
     - _IntersectionClipping: 0.395
-    - _IntersectionFalloff: 1
-    - _IntersectionLength: 2.27
+    - _IntersectionFalloff: 0.755
+    - _IntersectionLength: 2.25
     - _IntersectionRippleDist: 16
     - _IntersectionRippleStrength: 0.125
     - _IntersectionSize: 0.944
     - _IntersectionSource: 0
     - _IntersectionSpeed: 0.06999999
-    - _IntersectionStyle: 1
+    - _IntersectionStyle: 2
     - _IntersectionTiling: 0.13999975
     - _IntersectionWaveDist: 33.28
     - _LightingMode: 2
@@ -218,7 +218,7 @@ Material:
     - _SparkleSize: 0.302
     - _SpecularHighlights: 1
     - _SpecularReflectionsOn: 1
-    - _Speed: 1
+    - _Speed: 0.75
     - _SrcBlend: 1
     - _SunReflectionDistortion: 0.725
     - _SunReflectionPerturbance: 0.386
@@ -255,7 +255,7 @@ Material:
     - _ZClip: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 1, b: 0.5756109, a: 1}
+    - _BaseColor: {r: 0, g: 0.8792453, b: 0.50685906, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DepthMapBounds: {r: -402.3, g: -459.43, b: 0.0012693577, a: 0}
     - _Direction: {r: 1, g: 1, b: 0, a: 0}
@@ -265,7 +265,7 @@ Material:
     - _HorizonColor: {r: 0.68, g: 1, b: 0.99, a: 0.15}
     - _IntersectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShallowColor: {r: 0, g: 1, b: 0.98136926, a: 0.3764706}
+    - _ShallowColor: {r: 0, g: 0.88235295, b: 0.50980395, a: 0.3764706}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _WaterColor: {r: 0.21176466, g: 0.6745098, b: 1, a: 1}
     - _WaterShallowColor: {r: 0, g: 0.9394503, b: 1, a: 1}

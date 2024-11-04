@@ -9,10 +9,10 @@ public class PauseEndPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _coreText;
     [SerializeField] private GameObject _pauseText;
-    [SerializeField] private GameObject _reastartButton;
+    [SerializeField] private GameObject _resumeButton;
     [SerializeField] private GameObject _menu;
     [SerializeField] private GameObject _HUD;
-    [SerializeField] private GameObject _MenuCamera;
+    [SerializeField] private GameObject _menuCamera;
 
     [SerializeField] private CanvasGroup _canvasGroup;
     private InputManager _inputManager;
@@ -32,15 +32,17 @@ public class PauseEndPanel : MonoBehaviour
         _canvasGroup.blocksRaycasts = false;
         _pauseText.SetActive(false);
         _coreText.SetActive(false);
-        _reastartButton.SetActive(true);
+        _resumeButton.SetActive(true);
     }
 
     private void Update()
     {
-        if (_inputManager.EscTrigerred() && !_panelActive && !_MenuCamera.activeSelf)
+        if (_inputManager.EscTrigerred() && !_panelActive && !_menuCamera.activeSelf)
         {
+            // Pokazujemy kursor, aktywując menu pauzy
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
             _panelActive = true;
             _pauseText.SetActive(true);
             _canvasGroup.alpha = 1;
@@ -51,12 +53,13 @@ public class PauseEndPanel : MonoBehaviour
         }
     }
 
-    public void BUTTON_Reastart()
+    public void BUTTON_Resume() // Wznowienie gry
     {
         Time.timeScale = 1;
 
-        if (!_menu.activeSelf)
+        if (!_menuCamera.activeSelf)
         {
+            // Ukrywamy kursor po wznowieniu gry
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -80,7 +83,7 @@ public class PauseEndPanel : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         _panelActive = true;
-        _reastartButton.SetActive(false);
+        _resumeButton.SetActive(false);
         _coreText.SetActive(true);
         _animator.SetTrigger("FadeIn");
     }
