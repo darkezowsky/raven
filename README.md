@@ -1,6 +1,6 @@
 <h1>Raven: Skull Island</h1>
 
-![Preview](Assets/Graphics/Menu/icon.png)
+![Preview](Assets/Graphics/GitHub/raven_wyspa_czaszki_logo.png)
 
 Raven: Skull Island is a third-person action-adventure game with puzzle-solving elements, set on a mysterious and cursed island.
 
@@ -8,7 +8,7 @@ You play as Raven, a young pirate who miraculously survives a shipwreck caused b
 
 Face the mystery, survive the curse, and fight to escape Skull Island before it consumes you completely.
 
-
+![Preview](Assets/Graphics/GitHub/team_logo.png)
 The game was originally developed by a 6-person team as part of a graduation project at Game Dev School:
 * Programming: Patryk Niewiarowski
 * Lead Artist: Daniel Pytel
@@ -17,6 +17,12 @@ The game was originally developed by a 6-person team as part of a graduation pro
 * Project Mentor: Andrzej Zawadzki, former Lead Gameplay Designer at CD PROJEKT RED
 
 The initial commit reflects the exact [state](https://www.youtube.com/watch?v=zeqDeDUHbcQ) of the project at the time it was submitted for evaluation at Game Dev School.
+
+![Preview](Assets/Graphics/GitHub/wip_screenshot_01.png)
+![Preview](Assets/Graphics/GitHub/wip_screenshot_02.png)
+![Preview](Assets/Graphics/GitHub/wip_screenshot_03.png)
+![Preview](Assets/Graphics/GitHub/wip_screenshot_04.png)
+![Preview](Assets/Graphics/GitHub/wip_screenshot_05.png)
 
 All subsequent updates, including bug fixes, graphical improvements, and design changes, are the result of solo development work by me, Daniel Pytel.
 
