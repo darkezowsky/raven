@@ -23,7 +23,7 @@ public class SettingsMenu : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            // Przeliczamy refreshRate na Hz, dziel¹c przez 1000, a potem zaokr¹glamy
+            // Przeliczamy refreshRate na Hz, dzielÄ…c przez 1000, a potem zaokrÄ…glamy
             int refreshRate = Mathf.RoundToInt(resolutions[i].refreshRateRatio.numerator / 1000f);
 
             string option = resolutions[i].width + " x " + resolutions[i].height + " / " + refreshRate + "Hz";
